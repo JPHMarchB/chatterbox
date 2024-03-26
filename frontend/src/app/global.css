@@ -1,30 +1,3 @@
-@import url('https://fonts.googleapis.com/css2?family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&display=swap');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-@layer base {
-    .font-outline {
-        -webkit-text-stroke: 3px black;
-    }
-
-    .break-fix {
-        word-break: break-word;
-    }
-
-    @keyframes highlight {
-        from {
-            color: black;
-            background-color: yellow;
-        }
-        to {
-            color: white;
-            background-color: blue;
-        }
-    }
-
-    .animation-highlight {
-        animation: highlight 4s infinite alternate;
-    }
-}

@@ -1,9 +1,9 @@
 import type { Metadata } from 'next'
-import './globals.css'
+import './global.css'
 
 
 export const metadata: Metadata = {
-    title: 'PNN',
+    title: 'ChatterBox',
     description: 'description goes here',
 }
 
@@ -15,7 +15,7 @@ export default function RootLayout(props : RootLayoutProps) {
     const { children} = props
     return (
         <html  lang="en" suppressHydrationWarning>
-        <body>
+        <body className='bg-black'>
         {children}
         </body>
         </html>
