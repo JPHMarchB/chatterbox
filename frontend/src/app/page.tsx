@@ -1,9 +1,12 @@
 import {JSX} from "react";
+import {Posts} from "@/app/shared/Posts";
 
 export default function Home() : JSX.Element {
     return (
         <>
-            <h1>Home Page</h1>
+            <section className='bg-gray-800'>
+                <Posts/>
+            </section>
         </>
     )
 }

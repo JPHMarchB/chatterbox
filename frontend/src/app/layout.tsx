@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import './globals.css'
 import {Navigation} from "@/app/shared/Navigation";
-import {BottomNav} from "@/app/shared/BottomNav";
+import {SideBar} from "@/app/shared/SideBar";
 
 
 export const metadata: Metadata = {
@@ -17,10 +17,10 @@ export default function RootLayout(props : RootLayoutProps) {
     const { children } = props
     return (
         <html  lang="en" suppressHydrationWarning>
-        <body>
+        <body className='bg-black'>
         <Navigation/>
+        <SideBar/>
         {children}
-        <BottomNav/>
         </body>
         </html>
     )
