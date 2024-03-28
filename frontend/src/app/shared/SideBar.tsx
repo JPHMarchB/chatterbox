@@ -21,14 +21,14 @@ export function SideBar() : JSX.Element {
             </div>
 
             {/* Site Navigation */}
-            <div className='*:py-4 pt-9 text-white'>
-                <p className='hover:bg-gray-900 rounded-xl'>Feed</p>
-                <p className='hover:bg-gray-900 rounded-xl'>Explore</p>
-                <p className='hover:bg-gray-900 rounded-xl'>Direct Message</p>
-                <p className='hover:bg-gray-900 rounded-xl'>Settings</p>
-                <p className='hover:bg-red-600 rounded-xl mt-5 flex justify-center items-center gap-3'>
+            <div className='grid *:py-4 pt-9 text-white'>
+                <a href='/' className='hover:bg-gray-900 rounded-xl'>Feed</a>
+                <a href='/' className='hover:bg-gray-900 rounded-xl'>Explore</a>
+                <a href='/' className='hover:bg-gray-900 rounded-xl'>Direct Message</a>
+                <a href='/' className='hover:bg-gray-900 rounded-xl'>Settings</a>
+                <a href='/' className='hover:bg-red-600 rounded-xl mt-5 flex justify-center items-center gap-3'>
                     Logout<img src='/box-arrow-right.svg' alt='Logout'/>
-                </p>
+                </a>
             </div>
         </section>
         </nav>
