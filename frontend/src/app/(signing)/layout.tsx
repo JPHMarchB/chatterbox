@@ -15,7 +15,7 @@ export default function RootLayout(props : RootLayoutProps) {
     const { children } = props
     return (
         <html  lang="en" suppressHydrationWarning>
-        <body className="bg-[url('/sign-up-back.jpg')] bg-cover bg-center">
+        <body className="bg-[url('/sign-in-back.jpg')] bg-cover bg-center">
         {children}
         </body>
         </html>
