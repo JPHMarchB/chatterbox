@@ -2,10 +2,11 @@ import {JSX} from "react";
 
 export function Navigation() : JSX.Element {
     return (
-        <nav className='sticky top-0'>
+        <nav className='sticky top-0 border-b'>
             <div className="flex justify-between items-center backdrop-blur-3xl bg-black p-5 z-50">
-                <h1 className='text-lg italic'>ChatterBox</h1>
+                <h1 className='text-white font-bold text-lg italic'><a href='/'>ChatterBox</a></h1>
 
+                {/* Right side nav content*/}
                 <div className="flex gap-8 pe-5">
                     <img className='mt-1' src='/bell.svg' alt='notificatiions'/>
                     <img src='/chat-dots.svg' alt='Messages'/>

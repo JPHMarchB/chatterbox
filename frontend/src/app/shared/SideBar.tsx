@@ -2,8 +2,8 @@ import {JSX} from "react";
 
 export function SideBar() : JSX.Element {
     return (
-        <nav className='sticky left-0 top-[5.14rem]'>
-        <section className='hidden lg:block float-left px-16 py-8 text-center bg-black border-e'>
+        <nav className='sticky left-0 top-[5.14rem] z-50'>
+        <section className='hidden lg:block float-left px-16 py-8 text-center bg-black border-e me-5'>
 
             {/* Profile info */}
             <div className='*:py-1'>
