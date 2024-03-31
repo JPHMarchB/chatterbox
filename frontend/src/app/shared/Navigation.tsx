@@ -9,7 +9,7 @@ export function Navigation() : JSX.Element {
                 {/* Right side nav content*/}
                 <div className="flex items-center gap-8 pe-5">
                     <img className='mt-1' src='/bell.svg' alt='notificatiions'/>
-                    <a href='/chat'><img src='/chat-dots.svg' alt='Messages'/></a>
+                    <a href='/direct-message'><img src='/chat-dots.svg' alt='Messages'/></a>
                     <button className='hidden lg:flex gap-2 p-2 bg-gradient-to-r from-purple-500 to-blue-500 rounded-lg text-white'>
                         <img src='/plus-circle.svg' alt='Create new post'/>New Post
                     </button>

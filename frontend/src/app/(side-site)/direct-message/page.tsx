@@ -1,7 +1,7 @@
 import {JSX} from "react";
-import {DMs} from "@/app/(side-site)/chat/DMs";
+import {DMs} from "@/app/(side-site)/direct-message/DMs";
 
-export default function Chat() : JSX.Element {
+export default function DirectMessage() : JSX.Element {
     return (
         <>
             {/* Header */}
