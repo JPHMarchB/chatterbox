@@ -2,7 +2,7 @@ import {JSX} from "react";
 
 export default function SignUp() : JSX.Element {
     return (
-        <section className='flex justify-center items-center h-[100vh]'>
+        <main className='flex justify-center items-center h-[100vh]'>
             {/*<img className='hidden lg:flex h-[100vh]' src='/sign-up.jpg' alt='Sign up page image'/>*/}
 
             <div className='border-2 text-center rounded-xl bg-black/70 p-20'>
@@ -20,6 +20,6 @@ export default function SignUp() : JSX.Element {
                 </form>
                 <p className='text-white mt-10 text-sm'>Already have an account? <a className='text-blue-400 hover:underline' href='/'>Sign In!</a></p>
             </div>
-        </section>
+        </main>
     )
 }
