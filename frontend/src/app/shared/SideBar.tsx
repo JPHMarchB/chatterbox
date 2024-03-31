@@ -23,7 +23,7 @@ export function SideBar() : JSX.Element {
             {/* Site Navigation */}
             <div className='grid *:py-4 pt-9 text-white'>
                 <a href='/' className='hover:bg-gray-900 rounded-xl'>Feed</a>
-                <a href='/' className='hover:bg-gray-900 rounded-xl'>Explore</a>
+                <a href='/explore' className='hover:bg-gray-900 rounded-xl'>Explore</a>
                 <a href='/' className='hover:bg-gray-900 rounded-xl'>Direct Message</a>
                 <a href='/' className='hover:bg-gray-900 rounded-xl'>Settings</a>
                 <a href='/' className='hover:bg-red-600 rounded-xl mt-5 flex justify-center items-center gap-3'>
