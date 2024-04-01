@@ -8,7 +8,7 @@ export function SideBar() : JSX.Element {
             {/* Profile info */}
             <div className='*:py-1'>
                 <div className='flex justify-center items-center'>
-                <img className='w-28 h-28 rounded-full border-4 border-white' src='/profile-placeholder.jpg' alt='Profile'/>
+                    <a href='/profile'><img className='w-28 h-28 rounded-full border-4 border-white' src='/profile-placeholder.jpg' alt='Profile'/></a>
                 </div>
                 <h1 className='text-white text-xl'>@Joemflup_you</h1>
 
