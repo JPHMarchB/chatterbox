@@ -9,6 +9,7 @@ import {profileRoute} from "./apis/profile/profile.route";
 import {likeRoute} from "./apis/like/like.route";
 import {signUpRoute} from "./apis/sign-up/sign-up.route";
 import {imageRoute} from "./apis/image/image.route";
+import {signInRoute} from "./apis/sign-in/sign-in.route";
 
 
 // The following class creates the app and instantiates the server
@@ -57,6 +58,7 @@ export class App {
     private routes (): void {
         this.app.use(indexRoute.basePath, indexRoute.router)
         this.app.use(signUpRoute.basePath, signUpRoute.router)
+        this.app.use(signInRoute.basePath, signInRoute.router)
         this.app.use(profileRoute.basePath, profileRoute.router)
         this.app.use(imageRoute.basePath, imageRoute.router)
         this.app.use(likeRoute.basePath, likeRoute.router)
