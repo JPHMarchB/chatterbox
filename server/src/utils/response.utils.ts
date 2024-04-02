@@ -23,7 +23,7 @@ export function zodErrorResponse (response: Response, error: ZodError): Response
 }
 
 /**
- * helper function that sends an error response when a error occurs
+ * helper function that sends an error response when an error occurs
  * @param response
  * @param status
  */

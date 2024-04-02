@@ -5,7 +5,7 @@ import { createClient, RedisClientType } from 'redis'
 import RedisStore from 'connect-redis'
 // Routes
 import { indexRoute } from './apis/index.route'
-
+import {profileRoute} from "./apis/profile/profile.route";
 
 
 // The following class creates the app and instantiates the server
@@ -53,6 +53,7 @@ export class App {
     // private method for setting up routes in their basic sense (i.e. any route that performs an action on profiles starts with /profiles)
     private routes (): void {
         this.app.use(indexRoute.basePath, indexRoute.router)
+        this.app.use(profileRoute.basePath, profileRoute.router)
     }
 
     // starts the server and tells the terminal to post a message that the server is running and on what port
