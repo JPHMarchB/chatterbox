@@ -11,6 +11,7 @@ import {signUpRoute} from "./apis/sign-up/sign-up.route";
 import {imageRoute} from "./apis/image/image.route";
 import {signInRoute} from "./apis/sign-in/sign-in.route";
 import {signOutRoute} from "./apis/sign-out/sign-out.route";
+import {followRoute} from "./apis/follow/follow.route";
 
 
 // The following class creates the app and instantiates the server
@@ -63,6 +64,7 @@ export class App {
         this.app.use(signOutRoute.basePath, signOutRoute.router)
         this.app.use(profileRoute.basePath, profileRoute.router)
         this.app.use(imageRoute.basePath, imageRoute.router)
+        this.app.use(followRoute.basePath, followRoute.router)
         this.app.use(likeRoute.basePath, likeRoute.router)
     }
 
