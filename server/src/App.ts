@@ -6,6 +6,7 @@ import RedisStore from 'connect-redis'
 // Routes
 import { indexRoute } from './apis/index.route'
 import {profileRoute} from "./apis/profile/profile.route";
+import {likeRoute} from "./apis/like/like.route";
 
 
 // The following class creates the app and instantiates the server
@@ -54,6 +55,7 @@ export class App {
     private routes (): void {
         this.app.use(indexRoute.basePath, indexRoute.router)
         this.app.use(profileRoute.basePath, profileRoute.router)
+        this.app.use(likeRoute.basePath, likeRoute.router)
     }
 
     // starts the server and tells the terminal to post a message that the server is running and on what port
