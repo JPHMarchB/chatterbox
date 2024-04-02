@@ -15,7 +15,7 @@ import {z} from "zod";
 import "../../index";
 
 /**
- * Handles GET request for all likes associated with an post
+ * Handles GET request for all likes associated with a post
  * @param request object containing the like post id
  * @param response object containing the status of the request and the likes associated with the post
  */

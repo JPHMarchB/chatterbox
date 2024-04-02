@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import '../globals.css'
 import {Navigation} from "@/app/shared/Navigation";
-import {SideBar} from "@/app/shared/SideBar";
+import React from "react";
 
 
 export const metadata: Metadata = {
