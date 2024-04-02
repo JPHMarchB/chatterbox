@@ -8,7 +8,7 @@ import {
     selectLikesByLikePostId
 } from "./like.model";
 import {PublicProfile} from "../profile/profile.model";
-import { Status } from "../../utils/interface/Status";
+import { Status } from "../../utils/interfaces/Status";
 import { LikeSchema } from "./like.model";
 import {zodErrorResponse} from "../../utils/response.utils";
 import {z} from "zod";

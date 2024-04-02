@@ -8,7 +8,7 @@ import {
 } from "./profile.model";
 import {zodErrorResponse} from "../../utils/response.utils";
 import {PublicProfileSchema} from "./profile.model";
-import {Status} from "../../utils/interface/Status";
+import {Status} from "../../utils/interfaces/Status";
 
 
 /**
@@ -120,8 +120,6 @@ export async function getPublicProfilesByProfileNameController(request: Request,
  **/
 export async function putProfileController(request: Request, response: Response): Promise<Response<Status>> {
     try {
-
-
         //validate the updated profile data coming from the request body
         const validationResultForRequestBody = PublicProfileSchema.safeParse(request.body)
 

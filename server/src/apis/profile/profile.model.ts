@@ -122,7 +122,6 @@ export async function selectPublicProfileByProfileId (profileId: string): Promis
     return  result?.length === 1 ? result[0] : null
 }
 
-
 /**
  * selects the privateProfile from the profile table by profileId
  * @param profileId the profile's id to search for in the profile table

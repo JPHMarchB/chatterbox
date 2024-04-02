@@ -1,6 +1,6 @@
 import { Response } from 'express'
 import { ZodError } from 'zod/lib'
-import { Status } from './interface/Status'
+import { Status } from './interfaces/Status'
 
 /**
  * factory function that creates a status object to send back to the client

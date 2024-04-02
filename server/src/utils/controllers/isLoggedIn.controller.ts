@@ -1,6 +1,6 @@
 import {NextFunction, Request, Response} from 'express'
 import {verify} from 'jsonwebtoken'
-import {Status} from '../interface/Status'
+import {Status} from '../interfaces/Status'
 import {PublicProfile} from "../../apis/profile/profile.model";
 
 
