@@ -16,7 +16,7 @@ const basePath = '/apis/post'
 const router: Router = Router()
 
 router.route('/')
-    .post(postPostController)
+    .post(isLoggedInController, postPostController)
     .get(getAllPosts)
 
 router.route('/page/:page')
