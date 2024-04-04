@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "compile": "ts-node ./src/index.ts",
-    "dev": "./node_modules/nodemon/bin/nodemon.js -e ts  --exec \"npm run compile\"",
+    "dev": "npx nodemon -e ts  --exec \"npm run compile\"",
     "test": "echo \\\"Error: no src/test specified\\\" && exit 1",
     "clean": "ts-standard --fix",
     "lint": "ts-standard"
@@ -18,6 +18,7 @@
     "axios": "^1.5.1",
     "cloudinary": "^1.41.3",
     "connect-redis": "^7.1.0",
+    "dotenv": "^16.4.5",
     "express": "4.18.2",
     "express-session": "^1.17.3",
     "express-validator": "^7.0.1",
