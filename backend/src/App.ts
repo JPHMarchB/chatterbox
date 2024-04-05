@@ -3,6 +3,8 @@ import morgan from 'morgan'
 import session from 'express-session'
 import { createClient, RedisClientType } from 'redis'
 import RedisStore from 'connect-redis'
+import path from 'path'
+import db from "./db";
 // Routes
 import { indexRoute } from './apis/index.route'
 import {profileRoute} from "./apis/profile/profile.route";
@@ -15,6 +17,7 @@ import {followRoute} from "./apis/follow/follow.route";
 import {commentRoute} from "./apis/comment/comment.route";
 import {postRoute} from "./apis/post/post.route";
 
+require('dotenv').config({ path: path.resolve(__dirname, '../../.env') });
 
 // The following class creates the app and instantiates the server
 export class App {
@@ -33,6 +36,9 @@ export class App {
         this.settings()
         this.middlewares()
         this.routes()
+
+        // Use the database instance
+        db.connect().catch(console.error)
     }
 
     // private method that sets the port for the sever, to one from index.route.ts, and external .env file or defaults to 3000
