@@ -4,7 +4,6 @@ import session from 'express-session'
 import { createClient, RedisClientType } from 'redis'
 import RedisStore from 'connect-redis'
 import path from 'path'
-import db from "./db";
 // Routes
 import { indexRoute } from './apis/index.route'
 import {profileRoute} from "./apis/profile/profile.route";
@@ -38,7 +37,7 @@ export class App {
         this.routes()
 
         // Use the database instance
-        db.connect().catch(console.error)
+        // db.connect().catch(console.error)
     }
 
     // private method that sets the port for the sever, to one from index.route.ts, and external .env file or defaults to 3000
