@@ -3,6 +3,8 @@ import '../globals.css'
 import {Navigation} from "@/app/shared/Navigation";
 import {SideBar} from "@/app/shared/SideBar";
 import React from "react";
+import {getSession, Session} from "@/utils/fetchSession";
+import {Profile} from "@/utils/models/profile.model";
 
 
 export const metadata: Metadata = {
@@ -11,16 +13,18 @@ export const metadata: Metadata = {
 }
 
 type RootLayoutProps = {
-    children: React.ReactNode
+    children: React.ReactNode,
+    session: Session,
+    profile: Profile
 }
 
 export default function RootLayout(props : RootLayoutProps) {
-    const { children } = props
+    const { children, session, profile } = props
     return (
         <html  lang="en" suppressHydrationWarning>
         <body className='bg-black'>
         <Navigation/>
-        <SideBar/>
+        <SideBar session={session} profile={profile}/>
         {children}
         </body>
         </html>
