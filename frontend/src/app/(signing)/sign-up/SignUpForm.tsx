@@ -128,7 +128,6 @@ function SignUpFormContent(props: FormikProps<SignUp>) {
                         className='text-blue-400 hover:underline' href='/sign-in'>Sign In!</a></p>
                 </div>
             </form>
-
         </>
     )
 }
