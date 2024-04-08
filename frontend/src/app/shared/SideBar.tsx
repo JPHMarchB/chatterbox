@@ -1,4 +1,5 @@
 import {JSX} from "react";
+import {SignOutButton} from "@/app/shared/SignOutForm";
 
 export function SideBar() : JSX.Element {
     return (
@@ -26,9 +27,7 @@ export function SideBar() : JSX.Element {
                 <a href='/explore' className='hover:bg-gray-900 rounded-xl'>Explore</a>
                 <a href='/direct-message' className='hover:bg-gray-900 rounded-xl'>Direct Message</a>
                 <a href='/' className='hover:bg-gray-900 rounded-xl'>Settings</a>
-                <a href='/' className='hover:bg-red-600 rounded-xl mt-5 flex justify-center items-center gap-3'>
-                    Logout<img src='/box-arrow-right.svg' alt='Logout'/>
-                </a>
+                <SignOutButton/>
             </div>
         </section>
         </nav>

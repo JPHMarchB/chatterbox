@@ -11,15 +11,16 @@ export function SignOutButton() {
         const result = await fetchSignOut()
         if (result.status === 200) {
             router.refresh()
-            router.push('/sign-in-page')
-
+            router.push('/sign-in')
         }
     }
 
     return (
         <>
             <label className='sr-only' htmlFor='sign-out'>Button to sign out</label>
-            <button onClick={handleSignOut} className='hover:bg-red-500 hover:text-white' id='sign-out' name='sign-out'>Sign Out</button>
+            <button onClick={handleSignOut} name='sign-out' id='sign-out' className='hover:bg-red-600 rounded-xl mt-5 flex justify-center items-center gap-3'>Logout
+                <img src='/box-arrow-right.svg' alt='Logout'/>
+            </button>
         </>
     )
 }
