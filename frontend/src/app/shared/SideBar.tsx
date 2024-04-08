@@ -2,6 +2,7 @@ import {JSX} from "react";
 import {SignOutButton} from "@/app/shared/SignOutForm";
 import {getSession, Session} from "@/utils/fetchSession";
 import {Profile} from "@/utils/models/profile.model";
+import {permanentRedirect} from "next/navigation";
 
 type Props = {
     session: Session | undefined,
@@ -10,10 +11,9 @@ type Props = {
 
 function ProfileDisplay(props : Props) : JSX.Element {
     const {session} = props
+
     if (!session) {
-        return (
-            <p>Nothing to see here</p>
-        )
+        permanentRedirect(`/sign-in`)
     }
 
     return (
@@ -39,11 +39,10 @@ function ProfileDisplay(props : Props) : JSX.Element {
 export async function SideBar(props : Props) : Promise<JSX.Element> {
     const session = await getSession()
     const {profile} = props
-    // const router = useRouter()
 
-    // if (!session) {
-    //     router.push('/sign-in')
-    // }
+    if (!session) {
+        permanentRedirect(`/sign-in`)
+    }
 
     return (
         <nav className='sticky left-0 top-[5.14rem] z-50'>
