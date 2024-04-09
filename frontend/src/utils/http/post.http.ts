@@ -1,7 +1,7 @@
 import {Session} from "@/utils/fetchSession";
 import {cookies} from "next/headers";
 import {revalidateTag} from "next/cache";
-import {Like, LikeSchema} from "@/utils/models/like.model";
+import {Post, PostSchema} from "@/utils/models/post.model";
 
 export async function postPost(postId: string, postContent: string, postImageUrl: string, session: Session) {
     const sid = cookies().get('connect.sid')?.value ?? ""
@@ -24,7 +24,20 @@ export async function postPost(postId: string, postContent: string, postImageUrl
     return response.json()
 }
 
-export async function fetchPostByPostId(postId : string) : Promise<Like[]> {
+export async function fetchAllPosts() : Promise<Post[]> {
+    const {data} = await fetch(
+        `${process.env.PUBLIC_API_URL}/apis/post`)
+        .then((response: Response) => {
+        if(!response.ok) {
+            throw new Error('Error getting all posts')
+        } else {
+            return response.json()
+        }
+    })
+    return PostSchema.array().parse(data)
+}
+
+export async function fetchPostByPostId(postId : string) : Promise<Post[]> {
     const {data} = await fetch(
         `${process.env.PUBLIC_API_URL}/apis/post/${postId}`, {
             next:{
@@ -36,10 +49,10 @@ export async function fetchPostByPostId(postId : string) : Promise<Like[]> {
             return response.json()
         }
     })
-    return LikeSchema.array().parse(data)
+    return PostSchema.array().parse(data)
 }
 
-export async function fetchPostByProfileId(postProfileId: string) : Promise<Like[]> {
+export async function fetchPostByProfileId(postProfileId: string) : Promise<Post[]> {
     const {data} = await fetch(
         `${process.env.PUBLIC_API_URL}/apis/post/postProfileId/${postProfileId}`, {
             next:{
@@ -51,10 +64,10 @@ export async function fetchPostByProfileId(postProfileId: string) : Promise<Like
             return response.json()
         }
     })
-    return LikeSchema.array().parse(data)
+    return PostSchema.array().parse(data)
 }
 
-export async function fetchPostByName(postProfileName: string) : Promise<Like[]> {
+export async function fetchPostByName(postProfileName: string) : Promise<Post[]> {
     const {data} = await fetch(
         `${process.env.PUBLIC_API_URL}/apis/post/postProfileName/${postProfileName}`, {
             next:{
@@ -66,5 +79,5 @@ export async function fetchPostByName(postProfileName: string) : Promise<Like[]>
             return response.json()
         }
     })
-    return LikeSchema.array().parse(data)
+    return PostSchema.array().parse(data)
 }
