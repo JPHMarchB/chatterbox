@@ -1,7 +1,4 @@
 import { Comment, CommentSchema } from "../models/comment.model";
-import path from "path";
-
-require('dotenv').config({ path: path.resolve(__dirname, '../../../../.env') });
 
 export async function postComment(commentData: {commentPostId: string; commentContent: string; commentProfileId: string}): Promise<Comment> {
     const response = await fetch(`${process.env.PUBLIC_API_URL}/apis/comment/`, {
@@ -20,7 +17,7 @@ export async function postComment(commentData: {commentPostId: string; commentCo
     return CommentSchema.parse(response.data);
 }
 
-export async function fetchCommentsByArticleId(commentPostId: string): Promise<Comment[]> {
+export async function fetchCommentsByPostId(commentPostId: string): Promise<Comment[]> {
     const {data} = await fetch(`${process.env.PUBLIC_API_URL}/apis/comment/commentPostId/${commentPostId}`, {
         next:{
             tags: [`comment-${commentPostId}`]
