@@ -9,10 +9,11 @@ type Props = {
 }
 
 export async function SinglePost(props:Props) : Promise<JSX.Element> {
-    const { post} = props
+    const {post} = props
     const profile = await fetchProfileByProfileId(post.postProfileId)
     return (
         <>
+            <a href={`/post-page/${post.postId}`}>
             <div className='pt-4'>
 
                 {/* Post Image */}
@@ -34,6 +35,7 @@ export async function SinglePost(props:Props) : Promise<JSX.Element> {
                     </div>
                 </div>
             </div>
+            </a>
         </>
     )
 }
