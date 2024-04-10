@@ -1,14 +1,16 @@
 import {JSX} from "react";
 import {Post} from "@/utils/models/post.model";
 import {Profile} from "@/utils/models/profile.model";
+import {fetchProfileByProfileId} from "@/utils/http/profile.http";
 
 type Props = {
     post : Post,
     profile: Profile
 }
 
-export function SinglePost(props:Props) : JSX.Element {
-    const { post, profile} = props
+export async function SinglePost(props:Props) : Promise<JSX.Element> {
+    const { post} = props
+    const profile = await fetchProfileByProfileId(post.postProfileId)
     return (
         <>
             <div className='pt-4'>

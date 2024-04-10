@@ -20,8 +20,12 @@ export async function Explore() : Promise<JSX.Element> {
     const posts = await fetchAllPosts()
     return (
         <>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-1'>
-                {posts.map((post:Post) => <ExplorePost post={post}/>)}
+            <div className='mason-style'>
+                {posts.map((post:Post) => (
+                    <div className='mason-style-support'>
+                        <ExplorePost post={post} key={post.postId}/>
+                    </div>
+                ))}
             </div>
         </>
     )

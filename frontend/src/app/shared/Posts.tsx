@@ -2,27 +2,25 @@ import {JSX} from "react";
 import {SinglePost} from "@/app/shared/Post";
 import {fetchAllPosts} from "@/utils/http/post.http";
 import {Post} from "@/utils/models/post.model";
-import {fetchProfileByProfileId} from "@/utils/http/profile.http";
 import {Profile} from "@/utils/models/profile.model";
 
-export async function Posts() : Promise<JSX.Element> {
-    const {posts, profile} = await getData()
-    return (
-        <>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 p-1 md:px-10 lg:px-12'>
-                {posts.map((post: Post) => <SinglePost profile={profile[post.postProfileId]} post={post} key={post.postId}/>)}
-            </div>
-        </>
-    )
+type Props = {
+    profile: Profile
 }
 
-async function getData(): Promise<{profile:{[profileId: string ]: Profile} , posts: Post[]}> {
+export async function Posts(props : Props) : Promise<JSX.Element> {
+    const {profile} = props
     const posts = await fetchAllPosts()
+    return (
+        <>
+            <div className='mason-style'>
+                {posts.map((post: Post) => (
+                    <div className='mason-style-support'>
+                        <SinglePost profile={profile} post={post} key={post.postId}/>
+                    </div>
+                ))}
+            </div>
 
-    let profile : {[profileId: string ]: Profile} = {}
-
-    for(let post of posts) {
-        profile[post.postProfileId] = await fetchProfileByProfileId(post.postProfileId)
-    }
-    return {profile, posts}
+        </>
+    )
 }
