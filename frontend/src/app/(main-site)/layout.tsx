@@ -3,7 +3,7 @@ import '../globals.css'
 import {Navigation} from "@/app/shared/Navigation";
 import {SideBar} from "@/app/shared/SideBar";
 import React from "react";
-import {getSession, Session} from "@/utils/fetchSession";
+import {Session} from "@/utils/fetchSession";
 import {Profile} from "@/utils/models/profile.model";
 
 

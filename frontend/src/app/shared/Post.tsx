@@ -30,12 +30,14 @@ export async function SinglePost(props:Props) : Promise<JSX.Element> {
                     <div className='flex justify-between items-center border-2 rounded-b-xl bg-black p-1'>
 
                         {/* Poster info */}
+                        <a href={`/profile/${post.postProfileId}`}>
                         <div className='flex gap-2 items-center pt-2 text-sm'>
                             {profile.profileImageUrl &&
                                 <img className='rounded-full w-8 h-8' src={profile.profileImageUrl}
                                      alt='User post profile image'/>}
                             <p>{profile.profileName}</p>
                         </div>
+                        </a>
 
                         {/* Like and comment*/}
                         <div className='flex gap-2 me-2 mt-2'>

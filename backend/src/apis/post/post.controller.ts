@@ -177,7 +177,7 @@ export async function getPostByPostIdController (request: Request, response: Res
     } catch (error) {
         return response.json({
             status: 500,
-            message: '',
+            message: error,
             data: []
         })
     }
@@ -214,7 +214,7 @@ export async function getPostsByProfileNameController (request: Request, respons
     } catch (error) {
         return response.json({
             status: 500,
-            message: '',
+            message: error,
             data: []
         })
     }
@@ -251,7 +251,7 @@ export async function getPostByPostProfileIdController (request: Request, respon
     } catch (error) {
         return response.json({
             status: 500,
-            message: '',
+            message: error,
             data: []
         })
     }

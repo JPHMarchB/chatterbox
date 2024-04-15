@@ -23,14 +23,18 @@ export async function FullPost(props:Props) : Promise<JSX.Element> {
             <main className='bg-[#222] backdrop-blur flex justify-center'>
                 <div>
                     <section className='p-3 bg-black'>
-                        <a href="../"><img className='hover:btn-ghost rounded-lg p-1' src='/arrow-left.svg' alt='Back button'/></a>
+                        <a href="../">
+                            <img className='hover:btn-ghost rounded-lg p-1' src='/arrow-left.svg' alt='Back button'/>
+                        </a>
                     </section>
 
                     <section className='bg-[#111111] border-t border-gray-800'>
-                        <div className='flex items-center gap-4 p-4 text-white'>
-                            {profile.profileImageUrl && <img className='rounded-full w-10 h-10' src={profile.profileImageUrl} alt='User profile image'/>}
+                        <a className='flex items-center gap-4 p-4 text-white' href={`/profile/${post.postProfileId}`}>
+                            {profile.profileImageUrl &&
+                                <img className='rounded-full w-10 h-10' src={profile.profileImageUrl}
+                                     alt='User profile image'/>}
                             <h2>{profile.profileName}</h2>
-                        </div>
+                        </a>
                     </section>
 
                     <section>
