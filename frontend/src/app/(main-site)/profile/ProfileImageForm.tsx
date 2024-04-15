@@ -28,7 +28,6 @@ export function ProfileImageForm(props: ProfileImageFormProp) {
     }
 
     const handleSubmit = (values: Profile, actions: FormikHelpers<Profile>)=> {
-        const submitValues = {...values, profileImageUrl: null}
         const {setStatus, resetForm, setErrors} = actions
 
         // @ts-ignore
@@ -93,16 +92,10 @@ export function ProfileImageFormContent(props: FormikProps<Profile>) {
     const [selectedImage, setSelectedImage] = useState(null)
 
     const {
-        status,
         values,
-        errors,
-        touched,
-        dirty,
-        isSubmitting,
         handleChange,
         handleBlur,
         handleSubmit,
-        handleReset,
         setFieldValue
     } = props
 

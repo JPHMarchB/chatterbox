@@ -31,13 +31,14 @@ export async function postComment(comment: Comment, session: Session): Promise<C
     return CommentSchema.parse(response.data);
 }
 
-export async function fetchCommentsByPostId(postId: string): Promise<Comment[]> {
-    const {data} = await fetch(`${process.env.PUBLIC_API_URL}/apis/comment/commentPostId/${postId}`, {
-        next:{
-            tags: [`comment-${postId}`]
-        }}).then((response: Response) => {
+export async function fetchCommentsByPostId(postId : string) : Promise<Comment[]> {
+    const {data} = await fetch(
+        `${process.env.PUBLIC_API_URL}/apis/comment/commentPostId/${postId}`, {
+            next:{
+                tags: [`comment-${postId}`]
+            }}).then((response: Response) => {
         if(!response.ok) {
-            throw new Error('Error getting comments')
+            throw new Error('Error commenting')
         } else {
             return response.json()
         }

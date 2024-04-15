@@ -62,13 +62,13 @@ export async function postCommentController(request: Request, response: Response
         // Deconstruct profileId from profile
         const commentProfileId = profile.profileId as string
 
-        // Create a new comment object (excluding fields like commentId and commentDateTime that are set by the database)
+        // Create a new comment object (excluding fields like commentId and commentDatetime that are set by the database)
         const comment = {
             commentPostId,
             commentProfileId,
             commentContent,
             commentId:null,
-            commentDateTime:null,
+            commentDatetime:null,
         };
 
         // create a status object
@@ -126,7 +126,7 @@ export async function getCommentsByPostIdController(request: Request, response: 
 
         // if an error occurs, return the error to the user
     } catch (error: any) {
-        return response.json({ status: 500, message: "it doesnt work idiot", data: [] });
+        return response.json({ status: 500, message: error, data: [] });
     }
 }
 

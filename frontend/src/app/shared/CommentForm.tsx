@@ -33,7 +33,7 @@ export async function CommentForm(props: CommentFormProps) {
         commentPostId: post.postId,
         commentProfileId: session?.profile.profileId ?? null,
         commentContent: '',
-        commentDateTime: null,
+        commentDatetime: null,
     };
 
     const formSchema = CommentSchema;
@@ -80,8 +80,8 @@ function CommentFormContent(props: any) {
 
     return (
         <>
-            <form onSubmit={handleSubmit} className={"flex flex-col gap-4 p-4 bg-[#344955]"}>
-                <textarea className={"textarea h-32 resize-none p-2 text-sm text-black bg-gray-200 border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"}
+            <form onSubmit={handleSubmit} className={"flex flex-col gap-4 p-4 bg-[#000]"}>
+                <textarea className={"textarea h-16 resize-none p-2 text-sm text-white bg-[#111] border border-gray-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-white focus:border-transparent"}
                           id="content"
                           name="commentContent"
                           value={values.commentContent}

@@ -20,7 +20,7 @@ export const CommentSchema = z.object({
         .min(1, {message: 'comment content cannot be empty'})
         .max(512, {message: 'Max amount of characters reached.'}),
 
-    commentDateTime: z.coerce.date({
+    commentDatetime: z.coerce.date({
         required_error: 'please provide a valid commentDatetime or null'})
         .nullable()
 

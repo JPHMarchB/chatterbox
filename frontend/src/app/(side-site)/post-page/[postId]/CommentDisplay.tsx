@@ -12,13 +12,13 @@ export async function CommentDisplay(props:Props) {
 
     return (
         <>
-            <section className="bg-gray-800 p-10">
+            <section className="bg-[#000] p-5">
 
-                <div className='border-b-2 border-gray-500 pb-5'>
+                <div className='border-b-2 border-[#111] pb-5'>
 
                 {/* Profile Image */}
                     <a href={`../profile-page/${profile.profileId}`}>
-                    {profile.profileImageUrl && <img className='w-12 h-12 image-full rounded-full' src= {profile.profileImageUrl}
+                    {profile.profileImageUrl && <img className='w-10 h-10 image-full rounded-full' src= {profile.profileImageUrl}
                      alt='user profile image'/>}
                     </a>
 
@@ -27,7 +27,7 @@ export async function CommentDisplay(props:Props) {
                     <h2 className='text-white text-lg break-fix'>@{profile.profileName}</h2>
 
                     {/* Comment Content */}
-                    <p className='text-gray-300 text-sm leading-4 break-fix'>{comment.commentContent}</p>
+                    <p className='text-gray-300 leading-4 break-fix'>{comment.commentContent}</p>
                     </div>
 
                 </div>

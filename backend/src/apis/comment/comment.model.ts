@@ -21,7 +21,7 @@ export const CommentSchema = z.object({
         .max(512, {message: 'Max amount of characters surpassed'})
         .min(1, {message: 'please provide a'}),
 
-    commentDateTime: z.coerce.date({
+    commentDatetime: z.coerce.date({
         required_error: 'please provide a valid commentDatetime or null'})
         .nullable(),
 });

@@ -18,8 +18,7 @@ export async function CommentsDisplay (props:Props) {
         <>
 
             {/* Comment Display*/}
-            <div className={"max-h-96 overflow-y-auto"}>
-                <p>Hey listen</p>
+            <div className={"max-h-72 overflow-y-auto"}>
                 {comments.map(comment => (<CommentDisplay comment={comment} key = {comment.commentId}/>))}
             </div>
 

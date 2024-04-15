@@ -2,7 +2,6 @@
 
 import {Profile, ProfileSchema} from "@/utils/models/profile.model";
 import {cookies} from "next/headers";
-import {LikeSchema} from "@/utils/models/like.model";
 import {Session} from "@/utils/fetchSession";
 import {revalidatePath} from "next/cache";
 

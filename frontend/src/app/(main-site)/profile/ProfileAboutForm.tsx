@@ -68,7 +68,6 @@ export function ProfileAboutForm(props: ProfileAboutFormProp) {
 function ProfileAboutFormContent(props: FormikProps<Profile>) {
 
     const {
-        status,
         values,
         errors,
         touched,
