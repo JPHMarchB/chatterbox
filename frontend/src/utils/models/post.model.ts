@@ -3,8 +3,7 @@ import {z} from "zod";
 export const PostSchema = z.object({
     postId: z.string({
         required_error: 'please provide a valid postId or null'})
-        .uuid({message: 'please provide a valid uuid for postId UUID'})
-        .nullable(),
+        .uuid({message: 'please provide a valid uuid for postId UUID'}),
 
     postProfileId: z.string({
         required_error: 'please provide a valid postProfileId or null'})

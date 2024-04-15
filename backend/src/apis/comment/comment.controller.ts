@@ -100,7 +100,7 @@ export async function getCommentsByPostIdController(request: Request, response: 
 
         // if an error occurs, return the error to the user
     } catch (error: any) {
-        return response.json({ status: 500, message: error.message, data: [] });
+        return response.json({ status: 500, message: "it doesnt work idiot", data: [] });
     }
 }
 

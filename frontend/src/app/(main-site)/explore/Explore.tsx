@@ -23,9 +23,11 @@ export async function Explore() : Promise<JSX.Element> {
             <div className='mason-style'>
                 {posts.map((post:Post) => (
                     <div className='mason-style-support'>
-                        <ExplorePost post={post} key={post.postId}/>
+                        <a href={`/post-page/${post.postId}`}>
+                            <ExplorePost post={post} key={post.postId}/>
+                        </a>
                     </div>
-                ))}
+                    ))}
             </div>
         </>
     )
