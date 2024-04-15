@@ -3,27 +3,52 @@ import { sql } from "../../utils/database.utils";
 
 export const CommentSchema = z.object({
 
-    commentId: z.string({required_error:"Please provide a valid commentId"})
+    commentId: z.string({
+        required_error:"Please provide a valid commentId"})
         .uuid({message:"Please provide a valid uuid for commentId"})
         .nullable(),
 
-    commentProfileId: z.string({required_error:'Please provide a valid commentProfileId'})
+    commentProfileId: z.string({
+        required_error:'Please provide a valid commentProfileId'})
         .uuid({message:'Please provide a valid uuid for commentProfileId'}),
 
-    commentPostId: z.string({required_error:'Please provide a valid commentPostId'})
+    commentPostId: z.string({
+        required_error:'Please provide a valid commentPostId'})
         .uuid({message:'Please provide a valid uuid for commentPostId'}),
 
-    commentContent: z.string({required_error:'Please provide valid commentContent'})
+    commentContent: z.string({
+        required_error:'Please provide valid commentContent'})
         .max(512, {message: 'Max amount of characters surpassed'})
         .min(1, {message: 'please provide a'}),
 
-    commentDateTime: z.coerce.date({required_error: 'please provide a valid commentDatetime or null'})
+    commentDateTime: z.coerce.date({
+        required_error: 'please provide a valid commentDatetime or null'})
         .nullable(),
 });
 
 
 // Get comment schema
 export type Comment = z.infer<typeof CommentSchema>
+
+/**
+ * gets all posts from the posts table in the database and returns them to the user in the response
+ * @returns {Promise<Comment[]>}
+ * @throws {Error} an error if the query fails for some reason or if there are no posts in the database
+ */
+export async function selectAllComments(): Promise<Comment[]> {
+    // get all posts from the post table in the database and return them
+    const rowList = <Comment[]>
+        await sql`SELECT comment_id,
+                         comment_post_id,
+                         comment_profile_id,
+                         comment_content,
+                         comment_datetime
+                  FROM comment
+                  ORDER BY comment_datetime DESC`
+
+    // parse the posts from the database into an array of Post objects
+    return CommentSchema.array().parse(rowList)
+}
 
 /**
  * Inserts a comment into the comment table in the database and returns a message that says 'Comment successfully posted'

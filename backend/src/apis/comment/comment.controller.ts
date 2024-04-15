@@ -3,13 +3,39 @@ import {
     insertComment,
     selectCommentsByPostId,
     selectCommentsByProfileId,
-    deleteComment, selectCommentByCommentId
+    deleteComment, selectCommentByCommentId, selectAllComments
 } from './comment.model';
 import { CommentSchema } from "./comment.model";
 import { Status } from '../../utils/interfaces/Status';
 import { zodErrorResponse } from '../../utils/response.utils';
 import {z} from "zod";
 import {PublicProfile} from "../profile/profile.model";
+
+/**
+ * gets all comments from the database and returns them to the user in the response
+ * @param request from the client to the server to get all comments
+ * @param response from the server to the client with all comments or an error message
+ */
+export async function getAllComments (request: Request, response: Response): Promise<Response<Status>> {
+    try {
+
+        // get the comments from the database and store it in a variable called data
+        const data = await selectAllComments()
+
+        // return the response with the status code 200, a message, and the comments as data
+        const status: Status = {status: 200, message: null, data}
+        return response.json(status)
+
+        // if there is an error, return the response with the status code 500, an error message, and null data
+    } catch (error) {
+        console.error(error)
+        return response.json({
+            status: 500,
+            message: error,
+            data: []
+        })
+    }
+}
 
 /**
  * Handles POST request to insert a new comment into the database.

@@ -5,7 +5,7 @@ import {
     getCommentsByPostIdController,
     getCommentsByProfileIdController,
     deleteCommentController,
-    getCommentByCommentIdController
+    getCommentByCommentIdController, getAllComments
 } from "./comment.controller";
 
 // Declare a basePath for this router
@@ -16,7 +16,8 @@ const router = Router();
 
 // Route to post a new comment
 router.route('/')
-    .post(isLoggedInController, postCommentController);
+    .post(isLoggedInController, postCommentController)
+    .get(getAllComments);
 
 // Route to get comments by post ID
 router.route('/commentPostId/:commentPostId')
