@@ -6,13 +6,9 @@ import {getSession} from "@/utils/fetchSession";
 import {fetchLikesByPostId} from "@/utils/http/like.http";
 import {CommentsDisplay} from "@/app/(side-site)/post-page/CommentsDisplay";
 import {fetchCommentsByPostId} from "@/utils/http/comment.http";
-import {Comment} from "@/utils/models/comment.model";
-import {Like} from "@/utils/models/like.model";
 
 type Props = {
     post: Post
-    comments: Comment[]
-    likes: Like[]
 }
 
 export async function FullPost(props:Props) : Promise<JSX.Element> {
