@@ -22,7 +22,7 @@ export async function Explore() : Promise<JSX.Element> {
         <>
             <div className='mason-style'>
                 {posts.map((post:Post) => (
-                    <div className='mason-style-support'>
+                    <div className='mason-style-support hover:scale-95'>
                         <a href={`/post-page/${post.postId}`}>
                             <ExplorePost post={post} key={post.postId}/>
                         </a>

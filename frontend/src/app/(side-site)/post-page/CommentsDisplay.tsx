@@ -12,7 +12,7 @@ type Props = {
 }
 export async function CommentsDisplay (props:Props) {
     const {post, session} = props
-    const comments =  await getCommentData(post.postId)
+    const comments = await fetchCommentsByPostId(post.postId)
 
     return (
         <>
@@ -26,9 +26,4 @@ export async function CommentsDisplay (props:Props) {
 
         </>
     )
-}
-
-async function getCommentData (postId: string) {
-
-    return await fetchCommentsByPostId(postId)
 }

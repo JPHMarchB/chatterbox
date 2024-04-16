@@ -13,7 +13,7 @@ export async function Posts(props : Props) : Promise<JSX.Element> {
     const posts = await fetchAllPosts()
     return (
         <>
-            <div className='mason-style'>
+            <div className='md:mason-style'>
                 {posts.map((post: Post) => (
                     <div className='mason-style-support'>
                         <SinglePost profile={profile} post={post} key={post.postId}/>

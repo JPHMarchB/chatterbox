@@ -18,14 +18,15 @@ export default async function YourProfile() : Promise<JSX.Element> {
 
                     {/* Profile image */}
                     <div>
-                        {session.profile.profileImageUrl && <img className='rounded-full w-64 h-64' src={session.profile.profileImageUrl} alt='profile image'/>}
+                        {profile.profileImageUrl && <img className='rounded-full w-64 h-64' src={profile.profileImageUrl} alt='profile image'/>}
                     </div>
 
                     {/* Change profile info */}
                     <div>
-                        <h2 className='text-white text-4xl'>@{session.profile.profileName}</h2>
+                        <h2 className='text-white text-4xl'>@{profile.profileName}</h2>
                         <ProfileAboutForm session={session} profile={profile}/>
                         <ProfileImageForm session={session} profile={profile}/>
+                        <p>{profile.profileAbout}</p>
                     </div>
                 </section>
 

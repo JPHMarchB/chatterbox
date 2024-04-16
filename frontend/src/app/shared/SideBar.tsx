@@ -26,9 +26,9 @@ async function ProfileDisplay(props : Props) : Promise<JSX.Element> {
             {/* Profile info */}
             <div className='*:py-2'>
                 <div className='flex justify-center items-center'>
-                    <a href='/profile'>{session.profile.profileImageUrl && <img className='w-28 h-28 rounded-full border-4 border-white' src={session.profile.profileImageUrl} alt='Profile'/>}</a>
+                    <a href='/profile'>{profile.profileImageUrl && <img className='w-28 h-28 rounded-full border-4 border-white' src={profile.profileImageUrl} alt='Profile'/>}</a>
                 </div>
-                <h1 className='text-white text-xl'>{session.profile.profileName}</h1>
+                <h1 className='text-white text-xl'>{profile.profileName}</h1>
 
                 {/* Profile stats */}
                 <div className='flex gap-4'>
