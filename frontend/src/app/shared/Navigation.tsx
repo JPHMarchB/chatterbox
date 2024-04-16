@@ -10,9 +10,12 @@ export function Navigation() : JSX.Element {
                 <div className="flex items-center gap-8 pe-5">
                     <img className='mt-1' src='/bell.svg' alt='notificatiions'/>
                     <a href='/direct-message'><img src='/chat-dots.svg' alt='Messages'/></a>
-                    <button className='hidden lg:flex gap-2 p-2 bg-gradient-to-r from-purple-500 to-blue-500 rounded-lg text-white'>
-                        <img src='/plus-circle.svg' alt='Create new post'/>New Post
-                    </button>
+
+                    <a href='/create-post'>
+                        <button className='hidden lg:flex gap-2 p-2 bg-gradient-to-r from-purple-500 to-blue-500 rounded-lg text-white'>
+                            <img src='/plus-circle.svg' alt='Create new post'/>New Post
+                        </button>
+                    </a>
                 </div>
             </div>
         </nav>

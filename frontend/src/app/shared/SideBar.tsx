@@ -4,8 +4,8 @@ import {getSession, Session} from "@/utils/fetchSession";
 import {Profile} from "@/utils/models/profile.model";
 import {permanentRedirect} from "next/navigation";
 import {fetchFollowByFollowFollowingProfileId, fetchFollowByFollowProfileId} from "@/utils/http/follow.http";
-import {fetchPostByProfileId} from "@/utils/http/post.http";
 import {fetchProfileByProfileId} from "@/utils/http/profile.http";
+import {fetchPostByProfileId} from "@/utils/http/post.http";
 
 type Props = {
     session: Session | undefined,
@@ -19,7 +19,7 @@ async function ProfileDisplay(props : Props) : Promise<JSX.Element> {
     const profile = await fetchProfileByProfileId(session.profile.profileId)
     const following = await fetchFollowByFollowProfileId(profile.profileId)
     const follows = await fetchFollowByFollowFollowingProfileId(profile.profileId)
-    // const posts = await fetchPostByProfileId(profile.profileId)
+    const posts = await fetchPostByProfileId(profile.profileId)
 
     return (
         <>
@@ -32,7 +32,7 @@ async function ProfileDisplay(props : Props) : Promise<JSX.Element> {
 
                 {/* Profile stats */}
                 <div className='flex gap-4'>
-                    <p>Place<br/>Posts</p>
+                    <p>{posts.length}<br/>Posts</p>
                     <p>{follows.length} <br/>Followers</p>
                     <p>{following.length} <br/>Following</p>
                 </div>

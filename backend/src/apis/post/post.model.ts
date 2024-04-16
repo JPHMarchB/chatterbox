@@ -141,23 +141,18 @@ export async function selectPostsByProfileName(profileName: string): Promise<Pos
  * @param postProfileId {string} the post's profile to search for in the post table
  * @returns <Post|null> the post that has the postProfileId or null if no post is found
  */
-export async function selectPostByPostProfileId(postProfileId : string): Promise<Post | null> {
-    // get the post from the post table in the database by postProfile
-    const rowList = <Post[]>
-        await sql`SELECT post_id,
-                         post_profile_id,
-                         post_content,
-                         post_datetime,
-                         post_image_url
-                  FROM post
-                  WHERE post_profile_id = ${postProfileId}`
+export async function selectPostByPostProfileId(postProfileId: string): Promise<Post[]> {
+    // get all posts from the post table in the database by postProfileId and return them
+    const rowList = <Post[]>await sql`SELECT post_id,
+                                      post_profile_id,
+                                      post_content,
+                                      post_datetime,
+                                      post_image_url
+                               FROM post
+                               WHERE post_profile_id = ${postProfileId}`
 
-    // parse the post from the database into a post object
-    const result = PostSchema.array().max(1).parse(rowList)
-
-
-    // return the post or null if no post is found
-    return result.length === 0 ? null : result[0]
+    // parse the posts from the database into an array of Post objects
+    return PostSchema.array().parse(rowList)
 }
 
 /**

@@ -80,13 +80,13 @@ function ProfileAboutFormContent(props: FormikProps<Profile>) {
     return(
         <>
             <form onSubmit={handleSubmit} className={"py-2"}>
-                <div className="fl pb-2">
-                    <label className="text-lg font-semibold text-black" htmlFor="profileName">Edit Name</label>
+                <div className="">
+                    <label className="font-semibold text-white/60" htmlFor="profileName">Edit Name</label>
                     <input
                         onBlur={handleBlur}
                         onChange={handleChange}
                         value={values.profileName as string}
-                        className="input input-bordered w-full max"
+                        className="input input-bordered w-full bg-[#444] text-white/80"
                         type="text"
                         name="profileName"
                         id="profileName"
@@ -95,22 +95,21 @@ function ProfileAboutFormContent(props: FormikProps<Profile>) {
                     <DisplayError errors={errors} touched={touched} field={"profileName"}/>
                 </div>
 
-                <div className="fl pb-2">
-                    <label className="text-lg font-semibold text-black" htmlFor="profileAbout">About Me</label>
-                    <input
+                <div className="">
+                    <label className="font-semibold text-white/60" htmlFor="profileAbout">About Me</label>
+                    <textarea
                         onBlur={handleBlur}
                         onChange={handleChange}
                         value={values.profileAbout as string}
-                        className="input input-bordered w-full max"
-                        type="text"
+                        className="input input-bordered w-full bg-[#444] text-white/80"
                         name="profileAbout"
                         id="profileAbout"
                     />
-                    {/* Save and cancel button*/}
                     <DisplayError errors={errors} touched={touched} field={"profileAbout"}/>
                 </div>
 
-                <div className='text-white *:px-5 *:py-2 pt-2.5'>
+                {/* Save and cancel button*/}
+                <div className='text-white *:px-4 *:py-1 pt-2.5'>
                     <button className='bg-blue-400 rounded-lg me-2' type={"submit"}>Save</button>
                     <button className='bg-red-400 rounded-lg' type={"reset"} onClick={handleReset}> Cancel</button>
                 </div>

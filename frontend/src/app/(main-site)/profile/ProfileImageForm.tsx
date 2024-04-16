@@ -115,8 +115,9 @@ export function ProfileImageFormContent(props: FormikProps<Profile>) {
                     }
 
                 />
-                <button type={"submit"} className="relative rounded-full bg-white"><img
-                    src='/arrow-up-circle.svg' height="60" width='60' alt='upload new picture'/></button>
+                <button type={"submit"} className="p-0.5 rounded-full bg-white">
+                    <img src='/check2.svg' alt='upload new picture'/>
+                </button>
             </form>
         </>
     )
@@ -141,7 +142,7 @@ export function ProfileImageFormContent(props: FormikProps<Profile>) {
 
         return (
             <>
-                <label className="text-neutral font-semibold">Add Profile Image Image</label>
+                <label className="text-neutral font-semibold"></label>
                 {
                     formikProps.values.profileImageUrl &&
                     <>
@@ -152,11 +153,11 @@ export function ProfileImageFormContent(props: FormikProps<Profile>) {
                     </>
                 }
                 <div {...getRootProps()}
-                     className="py-6 px-2 flex flex-fill bg-primary/60 justify-center align-items-center border rounded-lg font-semibold text-secondary">
+                     className="px-2 py-5 flex flex-fill bg-white justify-center align-items-center border rounded-lg font-semibold text-black">
                     <input
                         aria-label="profile image file drag and drop area"
                         aria-describedby="image drag drop area"
-                        className="file-input form-control-file w-50 h-50"
+                        className="file-input"
                         accept="image/*"
                         type="file"
                         onChange={formikProps.handleChange}
@@ -165,8 +166,8 @@ export function ProfileImageFormContent(props: FormikProps<Profile>) {
                     />
                     {
                         isDragActive ?
-                            <span className="align-items-center">Drop image here</span> :
-                            <span className="align-items-center">Drag and drop image here</span>
+                            <span>Drop image here</span> :
+                            <span className='hover:cursor-pointer'>Update Profile Image Here</span>
                     }
                 </div>
                 {/*<FormDebugger{...props}/>*/}

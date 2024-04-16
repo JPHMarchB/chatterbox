@@ -192,9 +192,7 @@ export async function getPostsByProfileNameController (request: Request, respons
     try {
 
         // validate the incoming request postProfileId with the uuid schema
-        const validationResult = PublicProfileSchema
-            .pick({profileName: true})
-            .safeParse(request.params.profileName)
+        const validationResult = PublicProfileSchema.pick({profileName: true}).safeParse(request.params.profileName)
 
         // if the validation fails, return a response to the client
         if (!validationResult.success) {
@@ -214,44 +212,42 @@ export async function getPostsByProfileNameController (request: Request, respons
     } catch (error) {
         return response.json({
             status: 500,
-            message: error,
+            message: '',
             data: []
         })
     }
 }
 
 /**
- * gets a post from the database by post profile id and returns it to the user in the response
- * @param request from the client to the server to get a post by post profile id from
- * @param response from the server to the client with a post by post profile id or an error message
+ * gets all posts from the database by post profile id and returns them to the user in the response
+ * @param request from the client to the server to get all posts by post profile id
+ * @param response from the server to the client with all posts by post profile id or an error message
  */
 export async function getPostByPostProfileIdController (request: Request, response: Response): Promise<Response<Status>> {
     try {
 
         // validate the incoming request postProfileId with the uuid schema
-        const validationResult = z.string()
-            .uuid({message: 'please provide a valid postProfileId here'})
-            .safeParse(request.params.postProfileId)
+        const validationResult = z.string().uuid({message: 'please provide a valid postProfileId'}).safeParse(request.params.postProfileId)
 
         // if the validation fails, return a response to the client
         if (!validationResult.success) {
             return zodErrorResponse(response, validationResult.error)
         }
 
-        // get the post id from the request parameters
+        // get the post profile id from the request parameters
         const postProfileId = validationResult.data
 
-        // get the post from the database by post author and store it in a variable called data
+        // get the posts from the database by post profile id and store it in a variable called data
         const data = await selectPostByPostProfileId(postProfileId)
 
-        // return the response with the status code 200, a message, and the post as data
+        // return the response with the status code 200, a message, and the posts as data
         return response.json({status: 200, message: null, data})
 
         // if there is an error, return the response with the status code 500, an error message, and null data
     } catch (error) {
         return response.json({
             status: 500,
-            message: error,
+            message: '',
             data: []
         })
     }

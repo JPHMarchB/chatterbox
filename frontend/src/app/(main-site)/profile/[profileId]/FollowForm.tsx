@@ -45,8 +45,7 @@ export function FollowForm(props: FollowFormProps) {
                             setIsFollowed(false)
                             router.refresh()
                         }
-                    }}
-                                      className="btn btn-active bg-[#04bfad] text-white border-[#04bfad] hover:bg-[#04bfad] hover:border-[#04bfad] hover:scale-95">Followed</button> :
+                    }} className="btn btn-active bg-blue-950 text-white border-blue-500 hover:bg-[#04bfad] hover:border-[#04bfad] hover:scale-95">Followed</button> :
 
                     <button id={'follow'} name={"follow"} onClick={async () => {
                         const json = await fetchFollowToggle(profile.profileId, session)
@@ -54,8 +53,7 @@ export function FollowForm(props: FollowFormProps) {
                             setIsFollowed(true)
                             router.refresh()
                         }
-                    }}
-                            className="btn btn-active bg-[#8181e6] text-white border-[#8181e6] hover:bg-[#8181e6] hover:border-[#8181e6] hover:scale-105">Follow +</button>}
+                    }} className="btn btn-active bg-blue-500 text-white border-[#8181e6] hover:bg-[#8181e6] hover:border-[#8181e6] hover:scale-105">Follow +</button>}
             </div>
         </>
     )

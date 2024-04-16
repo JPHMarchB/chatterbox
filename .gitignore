@@ -23,6 +23,7 @@ project.env
 */.env.test.local
 *.env.*
 dump.rdb
+.env
 
 
 */npm-debug.log*
