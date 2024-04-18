@@ -10,11 +10,10 @@ import {useDropzone} from "react-dropzone";
 
 type PostImageFormProp = {
     session : Session
-    post: Post
 }
 
 export function PostImageForm(props: PostImageFormProp) {
-    const { session, post } = props
+    const { session } = props
     const router = useRouter()
 
 
@@ -55,7 +54,7 @@ export function PostImageForm(props: PostImageFormProp) {
 
         function submitImage (values: Post) {
             const authorization = session.authorization
-            fetch(`/apis/post/${post.postId}`, {
+            fetch(`/apis/post`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
@@ -167,7 +166,7 @@ export function PostImageFormContent(props: FormikProps<Post>) {
                     {
                         isDragActive ?
                             <span>Drop image here</span> :
-                            <span className='hover:cursor-pointer'>Update Post Image Here</span>
+                            <span className='hover:cursor-pointer p-20'>Update Post Image Here</span>
                     }
                 </div>
                 {/*<FormDebugger{...props}/>*/}

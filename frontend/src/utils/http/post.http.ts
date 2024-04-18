@@ -1,9 +1,11 @@
+'use server'
+
 import {Session} from "@/utils/fetchSession";
 import {cookies} from "next/headers";
 import {revalidateTag} from "next/cache";
 import {Post, PostSchema} from "@/utils/models/post.model";
 
-export async function postPost(postId: string, postContent: string, postImageUrl: string, session: Session) {
+export async function postPost(post: Post, session: Session) {
     const sid = cookies().get('connect.sid')?.value ?? ""
     const response = await fetch(`${process.env.PUBLIC_API_URL}/apis/post`, {
         method: 'POST',
@@ -13,14 +15,14 @@ export async function postPost(postId: string, postContent: string, postImageUrl
             Cookie: `connect.sid=${sid}`
         },
         body: JSON.stringify({
-            postId: postId,
+            postId: post.postId,
             postProfileId: session.profile.profileId,
-            postContent: postContent,
+            postContent: post.postContent,
             postDatetime: null,
-            postImageUrl: postImageUrl,
+            postImageUrl: post.postImageUrl,
         }),
     });
-    revalidateTag(`post-${postId}`)
+    revalidateTag(`post-${post.postId}`)
     return response.json()
 }
 
