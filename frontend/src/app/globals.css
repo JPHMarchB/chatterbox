@@ -12,4 +12,17 @@
         break-inside: avoid;
         margin-bottom: 0.5rem;
     }
+
+    @keyframes text-changer {
+        from {
+            color: white;
+        }
+        to {
+            color: #2a62f3;
+        }
+    }
+
+    .animation-color-change {
+        animation: text-changer 4s infinite alternate;
+    }
 }

@@ -18,9 +18,7 @@ export default async function ExplorePage() : Promise<JSX.Element> {
                     </section>
 
                     <section className='bg-[#111111] border-t border-gray-800'>
-                        {/*<PostImageForm session={session}/>*/}
                         <PostingForm session={session}/>
-
                     </section>
                 </div>
             </main>
