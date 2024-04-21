@@ -23,7 +23,7 @@ export default function RootLayout(props : RootLayoutProps) {
     return (
         <html  lang="en" suppressHydrationWarning>
         <body className='bg-black'>
-        <Navigation/>
+        <Navigation session={session} profile={profile}/>
         <SideBar session={session} profile={profile}/>
         {children}
         </body>

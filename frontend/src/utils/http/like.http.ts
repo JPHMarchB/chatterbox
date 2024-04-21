@@ -20,27 +20,6 @@ export async function fetchLikesByPostId(postId : string) : Promise<Like[]> {
     return LikeSchema.array().parse(data)
 }
 
-export async function fetchLikesByProfileId(session: Session) : Promise<Like[]> {
-    const sid = cookies().get('connect.sid')?.value ?? ""
-    const {data} = await fetch(`${process.env.PUBLIC_API_URL}/apis/like/likeProfileId/${session.profile.profileId}`, {
-        method: "GET",
-        headers: {
-            "Content-Type": "application/json",
-            authorization: session.authorization,
-            Cookie: `connect.sid=${sid}`
-        },
-        credentials: "include"
-
-    }).then((response: Response) => {
-        if(!response.ok) {
-            throw new Error('Error fetching threads')
-        } else {
-            return response.json()
-        }
-    })
-    return LikeSchema.array().parse(data)
-}
-
 export async function toggleLike(postId: string, session: Session) {
     const sid = cookies().get('connect.sid')?.value ?? ""
     const response = await fetch(`${process.env.PUBLIC_API_URL}/apis/like/toggle`, {

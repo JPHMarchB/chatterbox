@@ -2,7 +2,6 @@
 
 import {Profile, ProfileSchema} from "@/utils/models/profile.model";
 import {cookies} from "next/headers";
-import {Session} from "@/utils/fetchSession";
 import {revalidatePath} from "next/cache";
 
 export async function fetchProfileByProfileId(profileId: string) : Promise<Profile> {
@@ -37,25 +36,4 @@ export async function fetchSignOut() {
     } catch (error) {
         console.error('Error signing out:', error)
     }
-}
-
-export async function fetchProfileUpdate(session: Session, profileId: string) :Promise<Profile> {
-    const sid = cookies().get('connect.sid')?.value ?? ""
-    const {data} = await fetch(`${process.env.PUBLIC_API_URL}/apis/profile/${profileId}`, {
-        method: "PUT",
-        headers: {
-            "Content-Type": "application/json",
-            authorization: session?.authorization,
-            Cookie: `connect.sid=${sid}`
-        },
-        credentials: "include"
-
-    }).then((response: Response) => {
-        if(!response.ok) {
-            throw new Error('Error fetching profile about')
-        } else {
-            return response.json()
-        }
-    })
-    return ProfileSchema.parse(data)
 }

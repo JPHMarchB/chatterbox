@@ -1,3 +1,5 @@
+import {JSX} from "react";
+
 interface DisplayStatusProps {
     status: {
         type: string,
@@ -5,7 +7,7 @@ interface DisplayStatusProps {
     }
 }
 
-export function DisplayStatus (props: DisplayStatusProps): JSX.Element {
+export function DisplayStatus (props: DisplayStatusProps): JSX.Element{
     const {status} = props
     if (status){
         return (
