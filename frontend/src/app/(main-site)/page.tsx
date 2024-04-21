@@ -12,7 +12,7 @@ export default function Home(props : Props) : JSX.Element {
     return (
         <>
             <main className='bg-[#222] p-5 lg:p-0 pt-5'>
-                <Stories/>
+                {/*<Stories/>*/}
 
                 <h1 className='text-xl text-white pt-9'>Feed</h1>
                 <Posts profile={profile}/>
