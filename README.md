@@ -26,11 +26,17 @@ Chatterbox aims to recreate the core features of Instagram, including user authe
   - JSON Web Tokens (JWT) for authentication
 
 ## Demo
+### Home Page
 ![Home-page](https://github.com/JPHMarchB/chatterbox/assets/153705879/546f90a2-ba18-47d9-bd2e-ff5a8cc7257a)
+### Explore Page
 ![Explore-page](https://github.com/JPHMarchB/chatterbox/assets/153705879/2d509ef8-9502-4d1b-a503-048b8c6d9729)
+### Create Post
 ![Create post](https://github.com/JPHMarchB/chatterbox/assets/153705879/81317f83-859c-44b5-845c-4129d2d1885e)
+### Post Page
 ![Post-page](https://github.com/JPHMarchB/chatterbox/assets/153705879/143b43dc-28f0-4ab4-aaa3-24d470800d33)
+### Your Profile
 ![Your-profile](https://github.com/JPHMarchB/chatterbox/assets/153705879/b7f779ad-841e-4b1f-8ae7-ac29df76f98b)
+### Other Profiles
 ![Other-profiles](https://github.com/JPHMarchB/chatterbox/assets/153705879/42c2fc91-fb2a-4d8b-82c3-30e3a253b137)
 
 
